@@ -87,6 +87,11 @@ app.get("/url", (req, res, next) => {
     res.json(data);
 });
 
+app.get("/url/:id", (req, res, next) => {
+    const id = parseInt(req.params.id, 10);
+    res.json(data[id-1]);
+});
+
 app.listen(3001, () => {
     console.log("Server running on port 3001");
 }); 
