@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+
 class App extends Component {
   constructor(props)
   {
@@ -9,9 +10,9 @@ class App extends Component {
       value :""
     }
   }
-async  componentDidMount()
-  {
-   
+
+async  componentDidMount(){
+  console.log("2");
    await fetch('http://localhost:3001/url')
       .then(response => {
         return response.json()
@@ -25,7 +26,7 @@ async  componentDidMount()
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("ip");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("body");
     tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
           for(var j=0;j<3;j++){
@@ -35,6 +36,7 @@ async  componentDidMount()
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
                 i++;
+                break;
               } 
               else {
                 tr[i].style.display = "none";
@@ -43,16 +45,20 @@ async  componentDidMount()
           }
         }
   }
+
   async showDataDetail(id)
   {
+    console.log("3");
     await fetch('http://localhost:3001/url/'+id)
       .then(response => {
         return response.json()
       })
       .then(data =>{ 
+        console.log(data);
         alert("ID : "+data.id+"\nFirst Name : "+data.first_name+"\nLast Name: "+data.last_name+"\nCity : "+data.city);
       })
   }
+
   renderRow()
   {
     return this.state.students.map((student) => 
@@ -65,7 +71,7 @@ async  componentDidMount()
   }
   
   render() {
-
+    console.log("1");
     let search = (
         <input type="text" id="ip" onKeyUp = {this.searchT}></input>
     )
