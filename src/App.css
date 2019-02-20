@@ -31,3 +31,26 @@
     transform: rotate(360deg);
   }
 }
+
+.Table {
+  border-collapse: collapse;
+
+}
+
+button{
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.Thead {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+table, th, td {
+  border: 2px solid black;
+
+}
